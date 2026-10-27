@@ -1,46 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #2d3436;
-    color: #fff;
+    font-family: 'Inter', sans-serif;
+    background-color: #09090b;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(120, 53, 152, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 40%);
+    color: #f4f4f5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .box {
-    background: #636e72;
-    padding: 30px;
-    border-radius: 10px;
+    background: rgba(24, 24, 27, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    width: 360px;
+    position: relative;
+}
+
+/* Subtle top border highlight for glass card */
+.box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+h2 {
+    margin: 0 0 24px 0;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: #fafafa;
+    font-size: 20px;
 }
 
 #passwordDisplay {
-    background: #dfe6e9;
-    color: #2d3436;
-    font-size: 24px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    min-height: 30px;
+    background: rgba(9, 9, 11, 0.85);
+    color: #e4e4e7;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    min-height: 24px;
+    word-break: break-all;
+    text-align: center;
 }
 
 button {
-    background: #00b894;
-    color: white;
+    background: #fafafa;
+    color: #09090b;
     border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
+    width: 100%;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    letter-spacing: -0.01em;
 }
 
 button:hover {
-    background: #00cec9;
+    background: #e4e4e7;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
 }
